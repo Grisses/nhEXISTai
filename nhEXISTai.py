@@ -14,13 +14,16 @@ def req(pag):
     if req_pag.status_code == 200:
         msg = ("Magic number {0} exist".format(str(pag)))
 
-    else:
-        msg = ("Magic number {0} does not exist".format(str(pag)))
-        file = open('Nonexistent_magic_numbers.txt', "a")
-        file.write(str(pag) + '\n')
-        file.close()
+    elif req_pag.status_code == 404:
+        msg = ("Magic number {0} does not exist ERROR 404".format(str(pag)))
+        w_file(pag)
 
-    """ THE DELAY IS FOR SAFETY! DO NOT USE VERY SHORT VISIT TIMES
+    else:
+        msg = ("Magic number {0} does not exist UNKNOWN ERROR"
+               .format(str(pag)))
+        w_file(pag)
+
+    """THE DELAY IS FOR SAFETY! DO NOT USE VERY SHORT VISIT TIMES
     (LESS THAN 1 SECOND) TO AVOID BEING BANNED ON THE WEBSITE!"""
     time.sleep(1)
 
@@ -32,6 +35,12 @@ def make_file():
     file.write("Nonexistent magic numbers" + '\n')
     file.write(time.strftime("%d/%m/%y") + " "
                + time.strftime("%I:%M:%S") + '\n'*2)
+    file.close()
+
+
+def w_file(pag):
+    file = open('Nonexistent_magic_numbers.txt', "a")
+    file.write(str(pag) + '\n')
     file.close()
 
 
