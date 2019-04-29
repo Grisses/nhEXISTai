@@ -27,10 +27,19 @@ def req(pag):
 
     """THE DELAY IS FOR SAFETY! DO NOT USE VERY SHORT VISIT TIMES
     (LESS THAN 1 SECOND) TO AVOID BEING BANNED ON THE WEBSITE!"""
-    time.sleep(1)
+    time.sleep(2)
 
+def inputrange():
+    
+    star = int(input("Enter the first magic number to examine: "))
+    end = int(input("enter the last magic number to examine: "))
+
+    return star , end
 
 def main(start=1, end=270000):
+
+    start , end = inputrange()
+
     if start > end:
         msg = ("The end must be greater than the end")
         raise ValueError(msg)
@@ -60,5 +69,6 @@ def main(start=1, end=270000):
     return print("The execution was successfully completed")
 
 
+
 if __name__ == '__main__':
-    main(165, 167)
+    main()

@@ -10,8 +10,7 @@ nhEXISTai is a is a small script that shows what pages of https://nh---entai.net
 
 ## Execution
 
-- Modify the parameters "start" and "end" according to the "magic numbers" that you want to consult.
-- Run in code nhEXISTai.py (python 3.x).
+- Run  nhEXISTai.py (python 3.7.x).
 
 ## Requirements
 
